@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freeager Pet</title>
+    <link rel="stylesheet" href="main_styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+</head>
+<body>
+    <div class="main_page">
+        <div class="container">
+            <div class="header">
+                <div class="logo">
+                    <svg viewBox="0 0 24 24" class="app-logo" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.5 8.25L12 12.75L4.5 8.25M12 21.75L12 12.75M12 2.25L19.5 6.75L12 11.25L4.5 6.75L12 2.25Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 21.75L19.5 17.25L19.5 8.25M12 21.75L4.5 17.25L4.5 8.25"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h1>Freeager AI Pet Demo</h1>
+            </div>
+    
+            <div class="controls"> 
+                <button id="testButton">Test</button>
+                <button id="startButton">Start</button>
+                <button id="stopButton" disabled>Stop</button>
+                <button id="clearButton">Clear</button>
+                <select id="voiceSelect" class="voice-select">
+                    <option value="alloy">Alloy</option>
+                    <option value="ash">Ash</option>
+                    <option value="ballad">Ballad</option>
+                    <option value="coral">Coral</option>
+                    <option value="echo" selected>Echo</option>
+                    <option value="sage">Sage</option>
+                    <option value="shimmer">Shimmer</option>
+                    <option value="verse">Verse</option>
+                </select>
+            </div>
+            
+            <div class="content-wrapper">
+                <div class="transcript-container" id="transcriptContainer">
+                    <div id="transcript" class="transcript">
+                        <!-- Conversation content -->
+                        <!-- <div class="message assistant-message">訊息1</div>
+                        <div class="message assistant-message">訊息2</div> -->
+                    </div>
+                </div>
+                <div class="side-container">
+                    <div class="emoji-container" id = "emoji-container">
+                        <div class="emoji-placeholder" id="emoji-placeholder">😊</div >
+                    </div> 
+                    <div class="image-container" id="imageContainer">
+                        <!-- Image placeholder for testing -->
+                        <div class="image-placeholder">Image will appear here</div>
+                    </div>
+                    <div id="map" class="map-container">
+                        <!-- Map placeholder for testing -->
+                        <div class="map-placeholder">Map will appear here</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="status" class="status">Ready to start</div>
+            <div id="error" class="error"></div>
+        </div>
+    </div>
+
+    <script src="../config.js"></script>
+    <script src="main_app.js" type="module"></script>
+    
+</body>
+</html>
