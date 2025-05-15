@@ -39,8 +39,8 @@ body {
 }
 
 .app-logo {
-    width: 48px;
-    height: 48px;
+    width: clamp(32px, 5vw, 64px);
+    height: clamp(32px, 5vw, 64px);
     color: var(--primary-color);
     transition: transform 0.5s ease;
 }
@@ -55,20 +55,32 @@ h1 {
     color: var(--primary-color);
     margin: 0;
     text-align: center;
-    font-size: 2rem;
+    /*font-size: 2rem;*/
+    font-size: clamp(1rem, 2vw + 1rem, 2.5rem); /*最小字體, 變動幅度, 最大字體*/
     font-weight: 500;
 }
 
 
 .controls {
-    text-align: center;
+    display: flex;
+    flex-wrap: nowrap;             /* 不允許換行 */
+    justify-content: center;       /* 居中排列 */
+    align-items: center;
+    overflow-x: auto;              /* 若寬度不足，自動橫向捲動 */
+    gap: clamp(5px, 1vw, 15px);    /* 按鈕間距 */
+    padding: 0 1rem;
     margin-bottom: 2rem;
+    scrollbar-width: none;         /* Firefox 隱藏捲軸 */
+}
+
+.controls::-webkit-scrollbar {
+    display: none;                 /* Chrome 隱藏捲軸 */
 }
 
 .controls button {
-    padding: 10px 25px;
-    margin: 0 10px;
-    font-size: 16px;
+    padding: clamp(8px, 1.5vw, 12px) clamp(8px, 4vw, 32px);
+    font-size: clamp(14px, 2vw, 18px);
+    margin: 0 clamp(5px, 1vw, 10px);
     cursor: pointer;
     background-color: var(--primary-color);
     color: white;
@@ -100,9 +112,9 @@ h1 {
 }
 
 .voice-select {
-    padding: 10px 15px;
-    margin: 0 10px;
-    font-size: 16px;
+    padding: clamp(8px, 1.5vw, 12px) clamp(8px, 4vw, 32px);
+    font-size: clamp(14px, 2vw, 18px);
+    margin: 0 clamp(5px, 1vw, 10px);
     border: 2px solid var(--primary-color);
     border-radius: 5px;
     background-color: white;
@@ -398,3 +410,11 @@ h1 {
 .forecast-content.expanded {
     display: block;
 } 
+
+
+/* 當螢幕寬度小於等於600px時套用 */
+@media (max-width: 900px) {
+    .content-wrapper {grid-template-columns: 1fr; /* 單欄 */}
+    .transcript-container {min-height: 50vh;}
+    .status {display: none;}
+  }
